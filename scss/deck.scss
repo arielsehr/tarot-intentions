@@ -1,7 +1,6 @@
 // Deck of cards styles
 @use 'variables' as *;
 
-
 .deck-container {
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +8,7 @@
   gap: 15px;
   margin: $spacing-large 0;
   min-height: 120px; // Ensure it takes space even if empty
-  background-color: rgba($black, 0.1);
+  background-color: rgba($deep-navy, 0.08); // Changed from $black to $deep-navy with reduced opacity
   padding: 20px;
   border-radius: $card-radius;
 }
@@ -18,28 +17,30 @@
   width: 60px;
   height: 100px;
   border-radius: $border-radius;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba($deep-navy, 0.2); // Changed shadow color to use $deep-navy
   cursor: pointer;
   transition: $transition-fast;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $yellow;
+  color: $moon-gold; // Changed from $yellow to $moon-gold
   font-size: $body-size;
 
   background-image: url('./img/back.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: 1px solid $stone-gray; // Added subtle border for definition
 
   &:hover {
     transform: translateY(-5px) rotateY(20deg);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 10px rgba($deep-navy, 0.3); // Changed shadow color
   }
 
   &.selected {
     opacity: 0.5;
     transform: scale(0.9);
     pointer-events: none;
+    border-color: $scorpion-red; // Added color indication for selected cards
   }
 }

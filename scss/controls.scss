@@ -1,7 +1,6 @@
 // Controls styles
 @use 'variables' as *;
 
-
 .reading-types {
   display: flex;
   justify-content: center;
@@ -10,8 +9,8 @@
 }
 
 .reading-btn {
-  background-color: $black;
-  color: $yellow;
+  background-color: $deep-navy; // Changed from $black to $deep-navy
+  color: $moon-gold; // Changed from $yellow to $moon-gold
   border: none;
   padding: $spacing-medium $spacing-large;
   font-size: $subtitle-size;
@@ -20,16 +19,18 @@
   transition: $transition-fast;
   
   &:hover {
-    background-color: $celery;
+    background-color: $sage-green; // Changed from $celery to $sage-green
+    color: $light-text; // Added contrasting text color for better readability
   }
   
   &.active {
-    background-color: $celery;
+    background-color: $sage-green; // Changed from $celery to $sage-green
+    color: $light-text; // Added contrasting text color for better readability
   }
 }
 
 .reading-container {
-  background-color: $light-blue;
+  background-color: $celestial-blue; // Changed from $light-blue to $celestial-blue
   padding: $spacing-large;
   border-radius: $card-radius;
   box-shadow: $shadow-medium;
@@ -40,4 +41,5 @@
   text-align: center;
   margin-bottom: 20px;
   font-style: italic;
+  color: $deep-navy; // Added text color for better contrast on the blue background
 }

@@ -1,10 +1,9 @@
 // Interpretation section styles
 @use 'variables' as *;
 
-
 .interpretation {
-  background-color: $yellow;
-  border-left: 4px solid $celery;
+  background-color: $pale-gold; // Changed from $yellow to $pale-gold
+  border-left: 4px solid $sage-green; // Changed from $celery to $sage-green
   padding: $spacing-large;
   margin-top: $spacing-xlarge; // More breathing room
   border-radius: 0 $card-radius $card-radius 0;
@@ -12,27 +11,28 @@
   clear: both; // Ensures it appears below the cards
   
   h3 {
-    color: $celery;
+    color: $deep-navy; // Changed from $celery to $deep-navy
     font-size: 1.5rem;
     margin-bottom: $spacing-large;
     font-weight: normal;
-    border-bottom: 2px solid $celery;
+    border-bottom: 2px solid $sage-green; // Changed from $celery to $sage-green
     padding-bottom: $spacing-small;
     display: inline-block;
   }
   
   h4 {
-    color: $black;
+    color: $terra-cotta; // Changed from $black to $terra-cotta
     font-size: 1.2rem;
     margin: $spacing-medium 0 $spacing-small;
   }
   
   p {
     margin-bottom: $spacing-medium;
+    color: $dark-text; // Added specific text color
   }
   
   strong {
-    color: $celery;
+    color: $deep-navy; // Changed from $celery to $deep-navy
   }
 }
 
@@ -44,7 +44,7 @@
 .interpretation-section {
   margin-bottom: $spacing-large;
   padding-bottom: $spacing-medium;
-  border-bottom: 1px solid rgba($celery, 0.2); // Light celery border
+  border-bottom: 1px solid rgba($sage-green, 0.3); // Changed from $celery to $sage-green with slightly increased opacity
   
   &:last-child {
     border-bottom: none;

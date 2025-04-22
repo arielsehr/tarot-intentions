@@ -1,7 +1,6 @@
 // Card display styles
 @use 'variables' as *;
 
-
 .reading-area {
   display: flex;
   justify-content: center;
@@ -14,7 +13,7 @@
 .card {
   width: 200px;
   height: 340px;
-  background-color: $yellow;
+  background-color: $moon-gold; // Changed from $yellow to $moon-gold
   border-radius: $card-radius;
   box-shadow: $shadow-heavy;
   display: flex;
@@ -30,7 +29,7 @@
   .card-image {
     width: 100%;
     height: 100%;
-    background-color: $light-blue;
+    background-color: $celestial-blue; // Changed from $light-blue to $celestial-blue
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,12 +49,17 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($yellow, 0.9);
+    background-color: rgba($deep-navy, 0.9); 
+    color: $light-text; 
     font-size: $small-size;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     pointer-events: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &:hover .card-meaning {
@@ -64,13 +68,12 @@
   }
 }
 
-
 .card-position {
   text-align: center;
 }
 
 .position-label {
-  color: $black;
+  color: $dark-text; // Changed from $black to $dark-text
   font-weight: bold;
   margin-bottom: 10px;
 }

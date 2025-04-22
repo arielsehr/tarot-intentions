@@ -2,83 +2,52 @@
 const singleCardBtn = document.getElementById('single-card-btn');
 const threeCardBtn = document.getElementById('three-card-btn');
 const readingTitle = document.getElementById('reading-title');
-const instructions = document.getElementById('instructions');
 const deckContainer = document.getElementById('deck-container');
 const readingArea = document.getElementById('reading-area');
 const interpretation = document.getElementById('interpretation');
+const readingContainer = document.querySelector('.reading-container'); // Added this line
+
+
 
 // Variables
 let readingType = null;
 let selectedCards = [];
 let maxCards = 0;
 
-// Create the deck of cards
+// Create and display the deck of cards
 function createDeck() {
-    console.log("Creating deck...");
-    
-    // Clear previous cards
     deckContainer.innerHTML = '';
-    
-    // Shuffle the deck
     const shuffledDeck = [...tarotDeck].sort(() => Math.random() - 0.5);
     
-    // Create and add deck cards
     for (let i = 0; i < 22; i++) {
         const card = shuffledDeck[i];
-        
-        // Create card element
         const deckCard = document.createElement('div');
         deckCard.className = 'deck-card';
         deckCard.textContent = '✦';
         
-        // Add click handler with proper card data closure
         deckCard.addEventListener('click', function() {
             if (selectedCards.length < maxCards && !this.classList.contains('selected')) {
-                selectCard(this, card);
+                this.classList.add('selected');
+                selectedCards.push(card);
+                displaySelectedCards();
+                
+                if (selectedCards.length === maxCards) {
+                    displayCardInterpretation();
+                }
             }
         });
         
-        // Add to container
         deckContainer.appendChild(deckCard);
-    }
-    
-    console.log("Deck created with " + deckContainer.children.length + " cards");
-}
-
-// Select a card from the deck
-function selectCard(deckCardElement, cardData) {
-    console.log("Card selected:", cardData.name);
-    
-    // Mark card as selected in the deck
-    deckCardElement.classList.add('selected');
-    
-    // Add to selected cards
-    selectedCards.push(cardData);
-    
-    // Display the selected cards in the reading area
-    displaySelectedCards();
-    
-    // Display the card's interpretation text below the cards if we've reached the max cards
-    if (selectedCards.length === maxCards) {
-        displayCardInterpretation();
     }
 }
 
 // Display selected cards in the reading area
 function displaySelectedCards() {
-    console.log("Displaying " + selectedCards.length + " cards in reading area");
-    
-    // Clear the reading area first
     readingArea.innerHTML = '';
     
-    if (readingType === 'single') {
-        // Single card reading
-        if (selectedCards.length > 0) {
-            const cardElement = createCardElement(selectedCards[0]);
-            readingArea.appendChild(cardElement);
-        }
+    if (readingType === 'single' && selectedCards.length > 0) {
+        readingArea.appendChild(createCardElement(selectedCards[0]));
     } else {
-        // Three card reading
         const positions = ['Past', 'Present', 'Future'];
         
         selectedCards.forEach((card, index) => {
@@ -91,39 +60,29 @@ function displaySelectedCards() {
                 positionLabel.textContent = positions[index];
                 positionDiv.appendChild(positionLabel);
                 
-                const cardElement = createCardElement(card);
-                positionDiv.appendChild(cardElement);
-                
+                positionDiv.appendChild(createCardElement(card));
                 readingArea.appendChild(positionDiv);
             }
         });
     }
 }
 
-// Display the card interpretation below the cards
+// Display the card interpretation
 function displayCardInterpretation() {
-    // Clear any existing interpretation
-    if (interpretation) {
-        interpretation.innerHTML = '';
-        
-        // Create a spacer for breathing room
-        const spacer = document.createElement('div');
-        spacer.style.height = '40px';
-        interpretation.appendChild(spacer);
-        
-        // Create interpretation header
-        const header = document.createElement('h3');
-        header.textContent = 'Card Meaning';
-        interpretation.appendChild(header);
-        
-        if (readingType === 'single') {
-            // Single card interpretation
-            const card = selectedCards[0];
-            displaySingleCardInfo(card);
-        } else {
-            // Three card interpretation
-            displayThreeCardInfo();
-        }
+    if (!interpretation) return;
+    
+    interpretation.innerHTML = '';
+    
+    // Add spacing and header
+    interpretation.innerHTML = `
+        <div style="height: 40px"></div>
+        <h3>Card Meaning</h3>
+    `;
+    
+    if (readingType === 'single') {
+        displaySingleCardInfo(selectedCards[0]);
+    } else {
+        displayThreeCardInfo();
     }
 }
 
@@ -131,18 +90,11 @@ function displayCardInterpretation() {
 function displaySingleCardInfo(card) {
     const interpretationDiv = document.createElement('div');
     interpretationDiv.className = 'card-interpretation';
-    
-    const cardName = document.createElement('h4');
-    cardName.textContent = card.name;
-    interpretationDiv.appendChild(cardName);
-    
-    const cardMeaning = document.createElement('p');
-    cardMeaning.textContent = card.meaning;
-    interpretationDiv.appendChild(cardMeaning);
-    
-    const keywordsList = document.createElement('p');
-    keywordsList.innerHTML = `<strong>Keywords:</strong> ${card.keywords.join(', ')}`;
-    interpretationDiv.appendChild(keywordsList);
+    interpretationDiv.innerHTML = `
+        <h4>${card.name}</h4>
+        <p>${card.meaning}</p>
+        <p><strong>Keywords:</strong> ${card.keywords.join(', ')}</p>
+    `;
     
     interpretation.appendChild(interpretationDiv);
 }
@@ -150,32 +102,24 @@ function displaySingleCardInfo(card) {
 // Display information for three cards
 function displayThreeCardInfo() {
     const positions = ['Past', 'Present', 'Future'];
-    
     const interpretationDiv = document.createElement('div');
     interpretationDiv.className = 'spread-interpretation';
     
-    // Create a description for the spread
-    const spreadDescription = document.createElement('p');
-    spreadDescription.innerHTML = `<em>This three-card spread represents influences from your past, your current situation, and potential future developments.</em>`;
-    interpretationDiv.appendChild(spreadDescription);
+    // Add spread description
+    interpretationDiv.innerHTML = `
+        <p><em>This three-card spread represents influences from your past, your current situation, and potential future developments.</em></p>
+    `;
     
-    // Add information for each card
+    // Add info for each card
     selectedCards.forEach((card, index) => {
         const cardSection = document.createElement('div');
         cardSection.className = 'interpretation-section';
         cardSection.style.marginTop = '20px';
-        
-        const positionTitle = document.createElement('h4');
-        positionTitle.textContent = `${positions[index]}: ${card.name}`;
-        cardSection.appendChild(positionTitle);
-        
-        const cardMeaning = document.createElement('p');
-        cardMeaning.textContent = card.meaning;
-        cardSection.appendChild(cardMeaning);
-        
-        const keywordsList = document.createElement('p');
-        keywordsList.innerHTML = `<strong>Keywords:</strong> ${card.keywords.join(', ')}`;
-        cardSection.appendChild(keywordsList);
+        cardSection.innerHTML = `
+            <h4>${positions[index]}: ${card.name}</h4>
+            <p>${card.meaning}</p>
+            <p><strong>Keywords:</strong> ${card.keywords.join(', ')}</p>
+        `;
         
         interpretationDiv.appendChild(cardSection);
     });
@@ -191,83 +135,117 @@ function createCardElement(card) {
     const cardImage = document.createElement('div');
     cardImage.className = 'card-image';
 
-    // Check if image exists in card object
     if (card.image) {
         const img = document.createElement('img');
         img.src = `./img/${card.image}`;
         img.alt = `${card.name} tarot card`;
-
-        // If image fails to load, fallback to symbol
-        img.onerror = () => {
-            cardImage.textContent = card.symbol;
-        };
-
+        img.onerror = () => { cardImage.textContent = card.symbol; };
         cardImage.appendChild(img);
     } else {
         cardImage.textContent = card.symbol;
     }
 
-    const cardMeaning = document.createElement('div');
-    cardMeaning.className = 'card-meaning';
-    cardMeaning.textContent = card.meaning;
-
-    cardElement.appendChild(cardImage);
-    cardElement.appendChild(cardMeaning);
+    cardElement.innerHTML = `
+        <div class="card-image">${cardImage.innerHTML || card.symbol}</div>
+        <div class="card-meaning">${card.meaning}</div>
+    `;
 
     return cardElement;
 }
 
-
 // Set the reading type
 function setReadingType(type) {
-    console.log("Setting reading type to: " + type);
     readingType = type;
     selectedCards = [];
     
     // Update UI
-    if (type === 'single') {
-        singleCardBtn.classList.add('active');
-        threeCardBtn.classList.remove('active');
-        readingTitle.textContent = 'Daily Card Reading';
-        maxCards = 1;
-    } else {
-        singleCardBtn.classList.remove('active');
-        threeCardBtn.classList.add('active');
-        readingTitle.textContent = 'Past • Present • Future Reading';
-        maxCards = 3;
-    }
+    singleCardBtn.classList.toggle('active', type === 'single');
+    threeCardBtn.classList.toggle('active', type === 'three');
+    readingTitle.textContent = type === 'single' ? 'Daily Card Reading' : 'Past • Present • Future Reading';
+    maxCards = type === 'single' ? 1 : 3;
     
     // Clear previous readings
     readingArea.innerHTML = '';
-    
-    // Clear interpretation area if it exists
-    if (interpretation) {
-        interpretation.innerHTML = '';
-    }
+    if (interpretation) interpretation.innerHTML = '';
     
     // Reset any previously selected cards
-    const allCards = document.querySelectorAll('.deck-card');
-    allCards.forEach(card => {
-        card.classList.remove('selected');
-    });
+    document.querySelectorAll('.deck-card').forEach(card => card.classList.remove('selected'));
     
-    // Create deck
+    // Create deck and show containers
     createDeck();
+    deckContainer.style.display = 'flex';
+    readingArea.style.display = 'block';
+    if (interpretation) interpretation.style.display = 'block';
+
+    // Now show the entire reading container and its contents
+    if (readingContainer) readingContainer.style.display = 'block';
+    deckContainer.style.display = 'flex';
+    readingArea.style.display = 'block';
+    if (interpretation) interpretation.style.display = 'block';
 }
 
 // Initialize the app
 function init() {
-    console.log("Initializing app...");
-    
-    // Add event listeners
-    singleCardBtn.addEventListener('click', () => setReadingType('single'));
-    threeCardBtn.addEventListener('click', () => setReadingType('three'));
-    
-    // Default to single card reading on load
-    setReadingType('single');
-
-    
+  // Hide all reading-related elements initially
+  if (readingContainer) readingContainer.style.display = 'none';
+  [deckContainer, readingArea, interpretation].forEach(el => {
+    if (el) el.style.display = 'none';
+  });
+  
+  // Add event listeners
+  singleCardBtn.addEventListener('click', () => setReadingType('single'));
+  threeCardBtn.addEventListener('click', () => setReadingType('three'));
 }
 
-// Ensure we wait for DOM to be ready
+// Start the app
 document.addEventListener('DOMContentLoaded', init);
+
+// JavaScript to handle the header transformation with scrolling text banner
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Set today's date in the header
+    const dateElement = document.getElementById('tarot-date');
+    if (dateElement) {
+      const today = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      let dateString = today.toLocaleDateString(undefined, options);
+      dateElement.textContent = dateString.toLowerCase(); 
+    }
+    
+    // Get the header element
+    const header = document.querySelector('.title-area');
+    
+    // Create the scrolling text content from header content
+    if (header) {
+      const h1Text = header.querySelector('h1')?.textContent || 'Tarot Intentions';
+      const subtitle = header.querySelector('.subtitle')?.textContent || 'Navigate your day with intention';
+      const dateText = dateElement?.textContent || '';
+      
+      // Set the scrolling text
+      const scrollText = `${h1Text} ☽ ${dateText} ✴ ${subtitle} ✦ draw a card for daily guidance ✤ `;
+      header.setAttribute('data-scroll-text', scrollText);
+    
+      
+      // Function to handle scroll events
+      function handleScroll() {
+        // Add the fixed class when scrolled down more than the header height
+        if (window.scrollY > 190) {
+          header.classList.add('fixed');
+          document.body.classList.add('fixed-header');
+          // Apply padding to body equal to the fixed header height 
+          document.body.style.paddingTop = "250px";
+        } else {
+          header.classList.remove('fixed');
+          document.body.classList.remove('fixed-header');
+          // Remove the padding when header is not fixed
+          document.body.style.paddingTop = "0px";
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', handleScroll);
+      
+      // Initial check in case the page is loaded scrolled down
+      handleScroll();
+    }
+  });

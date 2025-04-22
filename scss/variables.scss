@@ -1,11 +1,23 @@
-// Color variables
-$celery: #909c64;
-$yellow: #efd574;
-$black: #251b18;
-$light-blue: #99c0c6;
+// Primary colors
+$celestial-blue: #264e86;     // softened and deepened for elegance
+$moon-gold: #e6c565;          // slightly muted for sophistication
+$deep-navy: #162e4d;          // darker, richer anchor tone
+
+// Accent & support
+$sage-green: #a5b29c;         // cooled slightly to match the tone
+$terra-cotta: #d96a54;        // softened for cohesion
+$pale-gold: #f4e6b7;          // warmed for subtle background use
+$stone-gray: #b3a79f;         // slightly desaturated for polish
+$scorpion-red: #c44450;       // more refined, less neon
+
+// Text & Utility
+$dark-text: #2a2a2a;          // clean, rich black substitute
+$light-text: #f8f8f8;         // slightly brighter for contrast
+$background: #f5f0df;         // softened background beige
+$shadow: rgba(0, 0, 0, 0.06); // more subtle shadow for modern UI
 
 // Font settings
-$primary-font: 'Garamond', serif;
+$primary-font:  "Playfair Display", serif;
 $title-size: 2.5rem;
 $subtitle-size: 1.1rem;
 $body-size: 1rem;
