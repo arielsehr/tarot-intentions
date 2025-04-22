@@ -1,0 +1,17 @@
+{
+    "name": "tarot-card-reader",
+    "version": "1.0.0",
+    "description": "A simple tarot card reading application",
+    "main": "index.js",
+    "scripts": {
+      "compile": "node compile-scss.js",
+      "watch": "node compile-scss.js --watch",
+      "start": "npm run watch"
+    },
+    "dependencies": {
+      "sass": "^1.69.5"
+    },
+    "devDependencies": {
+      "chokidar": "^3.5.3"
+    }
+  }

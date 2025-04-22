@@ -1,0 +1,17 @@
+// Main SCSS file
+// Using modern @use instead of deprecated @import
+
+// Variables first - we'll use these in all other files
+@use 'variables' as *;
+
+// Base styles
+@use 'base';
+
+// Component styles
+@use 'controls';
+@use 'deck';
+@use 'cards';
+@use 'interpretation';
+
+// Responsive styles last
+@use 'responsive';

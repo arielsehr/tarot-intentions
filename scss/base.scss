@@ -1,0 +1,52 @@
+// Base styles
+@use 'variables' as *;
+
+body {
+  font-family: $primary-font;
+  background-color: $yellow;
+  color: $black;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: $celery;
+  color: $yellow;
+  padding: $spacing-large;
+  text-align: center;
+}
+
+h1 {
+  font-size: $title-size;
+  margin: 0;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-style: italic;
+  margin-top: $spacing-small;
+}
+
+main {
+  flex: 1;
+  padding: $spacing-large;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+footer {
+  background-color: $black;
+  color: $yellow;
+  text-align: center;
+  padding: $spacing-medium;
+  margin-top: $spacing-large;
+}
+
+.hidden {
+  display: none;
+}

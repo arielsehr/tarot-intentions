@@ -1,0 +1,43 @@
+// Controls styles
+@use 'variables' as *;
+
+
+.reading-types {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-large;
+  margin-bottom: $spacing-large;
+}
+
+.reading-btn {
+  background-color: $black;
+  color: $yellow;
+  border: none;
+  padding: $spacing-medium $spacing-large;
+  font-size: $subtitle-size;
+  cursor: pointer;
+  border-radius: $border-radius;
+  transition: $transition-fast;
+  
+  &:hover {
+    background-color: $celery;
+  }
+  
+  &.active {
+    background-color: $celery;
+  }
+}
+
+.reading-container {
+  background-color: $light-blue;
+  padding: $spacing-large;
+  border-radius: $card-radius;
+  box-shadow: $shadow-medium;
+  margin-top: $spacing-large;
+}
+
+.instructions {
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
+}

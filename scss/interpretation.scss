@@ -1,0 +1,52 @@
+// Interpretation section styles
+@use 'variables' as *;
+
+
+.interpretation {
+  background-color: $yellow;
+  border-left: 4px solid $celery;
+  padding: $spacing-large;
+  margin-top: $spacing-xlarge; // More breathing room
+  border-radius: 0 $card-radius $card-radius 0;
+  line-height: 1.6;
+  clear: both; // Ensures it appears below the cards
+  
+  h3 {
+    color: $celery;
+    font-size: 1.5rem;
+    margin-bottom: $spacing-large;
+    font-weight: normal;
+    border-bottom: 2px solid $celery;
+    padding-bottom: $spacing-small;
+    display: inline-block;
+  }
+  
+  h4 {
+    color: $black;
+    font-size: 1.2rem;
+    margin: $spacing-medium 0 $spacing-small;
+  }
+  
+  p {
+    margin-bottom: $spacing-medium;
+  }
+  
+  strong {
+    color: $celery;
+  }
+}
+
+.card-interpretation, 
+.spread-interpretation {
+  margin-top: $spacing-medium;
+}
+
+.interpretation-section {
+  margin-bottom: $spacing-large;
+  padding-bottom: $spacing-medium;
+  border-bottom: 1px solid rgba($celery, 0.2); // Light celery border
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}

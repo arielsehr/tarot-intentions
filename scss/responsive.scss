@@ -1,0 +1,63 @@
+// Responsive styles
+@use 'variables' as *;
+
+
+@media (max-width: 768px) {
+  main {
+    padding: $spacing-medium;
+  }
+  
+  header {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .reading-area {
+    gap: $spacing-medium;
+  }
+  
+  .card {
+    width: 150px;
+    height: 255px;
+  }
+  
+  .card-image {
+    width: 80px;
+    height: 120px;
+    font-size: 2rem;
+  }
+  
+  .card-meaning {
+    font-size: 0.8rem;
+    max-height: 80px;
+  }
+  
+  .interpretation {
+    padding: $spacing-medium;
+  }
+}
+
+@media (max-width: 480px) {
+  .reading-types {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-medium;
+  }
+  
+  .reading-btn {
+    width: 80%;
+  }
+  
+  .card {
+    width: 120px;
+    height: 210px;
+  }
+  
+  .card-image {
+    width: 60px;
+    height: 90px;
+  }
+}

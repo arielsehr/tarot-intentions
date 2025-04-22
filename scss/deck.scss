@@ -1,0 +1,45 @@
+// Deck of cards styles
+@use 'variables' as *;
+
+
+.deck-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: $spacing-large 0;
+  min-height: 120px; // Ensure it takes space even if empty
+  background-color: rgba($black, 0.1);
+  padding: 20px;
+  border-radius: $card-radius;
+}
+
+.deck-card {
+  width: 60px;
+  height: 100px;
+  border-radius: $border-radius;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $yellow;
+  font-size: $body-size;
+
+  background-image: url('./img/back.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:hover {
+    transform: translateY(-5px) rotateY(20deg);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  &.selected {
+    opacity: 0.5;
+    transform: scale(0.9);
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Tarot Reader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Tarot Today</h1>
+        <h2 id="tarot-date"></h2>
+        <p class="subtitle">Navigate your day with intention</p>
+    </header>
+    
+    <main>
+        <div class="reading-types">
+            <button class="reading-btn" id="single-card-btn">Today's Focus: One Card Reading</button>
+            <button class="reading-btn" id="three-card-btn">Complete Guidance: Three Card Reading</button>
+        </div>
+        
+        <div class="reading-container" id="reading-container">
+            <h2 id="reading-title">Each card offers guidance for approaching your day with purpose. Set your intention, find your focus, and take meaningful action.</h2>
+            
+            <p class="instructions" id="instructions">Choose cards from the deck below</p>
+            
+            <div class="deck-container" id="deck-container">
+                <!-- Cards will appear here -->
+            </div>
+            
+            <div class="reading-area" id="reading-area"></div>
+            
+            <div class="interpretation" id="interpretation"></div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Daily Tarot Reader • For entertainment purposes only</p>
+    </footer>
+    
+    <!-- First load the tarot data -->
+    <script src="tarot-data.js"></script>
+    
+    <!-- Then load the main app script -->
+    <script src="app.js"></script>
+</body>
+</html>
