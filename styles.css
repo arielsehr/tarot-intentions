@@ -15,6 +15,7 @@ header {
   background-color: #264e86;
   color: #fff3e0;
   position: fixed;
+  padding: 2rem;
 }
 
 h1 {
@@ -25,7 +26,6 @@ h1 {
 
 main {
   flex: 1;
-  padding: 2rem;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -50,7 +50,7 @@ header.title-area {
   background-color: #162e4d;
   width: 100%;
   box-sizing: border-box;
-  z-index: 9;
+  z-index: 10;
   position: relative;
   /* No initial animation for the background - it's visible immediately */
   opacity: 1;
@@ -78,8 +78,7 @@ header.title-area h2#tarot-date {
   color: #fff3e0;
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.7s;
-  margin-left: 70px;
-  color: #e6c565;
+  color: #a5b29c;
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
@@ -93,7 +92,7 @@ header.title-area .subtitle {
   transform: translateY(40px);
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.9s;
-  margin: 0 0 0 70px;
+  margin: 0;
 }
 
 /* Fixed header state with horizontal scrolling text */
@@ -151,9 +150,9 @@ header.title-area.fixed::before {
   display: inline-block;
   position: fixed;
   max-width: 500px;
-  top: 0;
+  top: 20px;
   right: -150px;
-  z-index: 10;
+  z-index: 9;
 }
 
 .lady {
@@ -237,29 +236,37 @@ header.title-area.fixed::before {
 
 .reading-types {
   display: flex;
-  gap: 1px;
-  border: 1px solid rgba(38, 78, 134, 0.5);
+  gap: 3px;
+  border: 2px solid #000;
   position: relative;
   width: fit-content;
   margin-bottom: 2rem;
   overflow: hidden;
   margin-left: 70px;
+  margin: 2rem;
+  border-radius: 16px;
+  background-color: #000;
 }
 
 .reading-btn {
-  background: #162e4d;
-  color: #fff3e0;
+  background: #fff3e0;
+  color: #000;
   border: none;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   font-size: 1.1rem;
   cursor: pointer;
   transition: 0.3s ease;
   position: relative;
   z-index: 1;
+  font-family: "Poppins", sans-serif;
+}
+.reading-btn:hover {
+  background-color: #b04b2f;
+  color: #fff3e0;
 }
 .reading-btn.active {
-  background: linear-gradient(45deg, #264e86, #162e4d);
-  color: #e6c565;
+  background-color: #b04b2f;
+  color: #fff3e0;
 }
 
 #single-card-btn:hover ~ .lady-and-bubbles .lion-bubble {
@@ -273,11 +280,11 @@ header.title-area.fixed::before {
 }
 
 .reading-container {
-  background-color: #264e86;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
+  padding-left: 2rem;
+  z-index: 9;
+  position: relative;
 }
 
 .instructions {
@@ -294,14 +301,13 @@ header.title-area.fixed::before {
   gap: 15px;
   margin: 2rem 0;
   min-height: 120px;
-  background-color: rgba(22, 46, 77, 0.08);
   padding: 20px;
   border-radius: 10px;
 }
 
 .deck-card {
-  width: 60px;
-  height: 100px;
+  width: 120px;
+  height: 200px;
   border-radius: 5px;
   box-shadow: 2px 2px 4px rgba(22, 46, 77, 0.2);
   cursor: pointer;
@@ -419,7 +425,7 @@ header.title-area.fixed::before {
   display: inline-block;
 }
 .interpretation h4 {
-  color: #e05e34;
+  color: #b04b2f;
   font-size: 1.2rem;
   margin: 1rem 0 0.5rem;
 }

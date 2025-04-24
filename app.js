@@ -180,7 +180,7 @@ function setReadingType(type) {
     // Now show the entire reading container and its contents
     if (readingContainer) readingContainer.style.display = 'block';
     deckContainer.style.display = 'flex';
-    readingArea.style.display = 'block';
+    readingArea.style.display = 'flex';
     if (interpretation) interpretation.style.display = 'block';
 }
 
@@ -214,11 +214,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Get the header element
     const header = document.querySelector('.title-area');
+    const bubble = document.querySelector('.bubble');
     
     // Create the scrolling text content from header content
     if (header) {
       const h1Text = header.querySelector('h1')?.textContent || 'Tarot Intentions';
-      const subtitle = header.querySelector('.subtitle')?.textContent || 'Navigate your day with intention';
       const dateText = dateElement?.textContent || '';
       
       // Set the scrolling text
@@ -231,14 +231,22 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add the fixed class when scrolled down more than the header height
         if (window.scrollY > 190) {
           header.classList.add('fixed');
+          header.style.zIndex = '100';
           document.body.classList.add('fixed-header');
           // Apply padding to body equal to the fixed header height 
           document.body.style.paddingTop = "250px";
+          bubble.style.display = "none";
+          bubble.style.opacity = "0";
+          bubble.style.visibility = "hidden";
         } else {
           header.classList.remove('fixed');
+          header.style.zIndex = '8';
           document.body.classList.remove('fixed-header');
           // Remove the padding when header is not fixed
           document.body.style.paddingTop = "0px";
+          bubble.style.display = "block";
+          bubble.style.opacity = "1";
+          bubble.style.visibility = "visible";
         }
       }
       

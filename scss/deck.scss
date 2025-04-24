@@ -8,14 +8,13 @@
   gap: 15px;
   margin: $spacing-large 0;
   min-height: 120px; // Ensure it takes space even if empty
-  background-color: rgba($deep-navy, 0.08); // Changed from $black to $deep-navy with reduced opacity
   padding: 20px;
   border-radius: $card-radius;
 }
 
 .deck-card {
-  width: 60px;
-  height: 100px;
+  width: 120px;
+  height: 200px;
   border-radius: $border-radius;
   box-shadow: 2px 2px 4px rgba($deep-navy, 0.2); // Changed shadow color to use $deep-navy
   cursor: pointer;

@@ -17,7 +17,8 @@ header {
   padding: $spacing-large;
   background-color: $celestial-blue;  
   color: $light-text; 
-  position:fixed
+  position:fixed;
+  padding: $spacing-large;
 }
 
 h1 {
@@ -28,7 +29,6 @@ h1 {
 
 main {
   flex: 1;
-  padding: $spacing-large;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -53,7 +53,7 @@ header.title-area {
   background-color: $deep-navy;
   width: 100%;
   box-sizing: border-box;
-  z-index: 9;
+  z-index: 10;
   position: relative;
   
   /* No initial animation for the background - it's visible immediately */
@@ -82,8 +82,7 @@ header.title-area h2#tarot-date {
   color: $light-text;
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.7s;
-  margin-left: 70px;
-  color: $moon-gold;
+  color: $sage-green;
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
@@ -97,7 +96,7 @@ header.title-area .subtitle {
   transform: translateY(40px);
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.9s;
-  margin: 0 0 0 70px;
+  margin: 0;
 }
 
 /* Fixed header state with horizontal scrolling text */
