@@ -287,6 +287,10 @@ header.title-area.fixed::before {
   position: relative;
 }
 
+#reading-title {
+  color: #fff3e0;
+}
+
 .instructions {
   text-align: center;
   margin-bottom: 20px;
@@ -298,16 +302,13 @@ header.title-area.fixed::before {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  margin: 2rem 0;
-  min-height: 120px;
+  gap: 10px;
   padding: 20px;
-  border-radius: 10px;
 }
 
 .deck-card {
-  width: 120px;
-  height: 200px;
+  aspect-ratio: 60/100;
+  width: 80px;
   border-radius: 5px;
   box-shadow: 2px 2px 4px rgba(22, 46, 77, 0.2);
   cursor: pointer;
@@ -317,19 +318,18 @@ header.title-area.fixed::before {
   justify-content: center;
   color: #e6c565;
   font-size: 1rem;
-  background-image: url("./img/back.jpg");
-  background-size: cover;
+  background-image: url("./img/back-new.jpg");
+  background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
   border: 1px solid #b3a79f;
 }
 .deck-card:hover {
   transform: translateY(-5px) rotateY(20deg);
-  box-shadow: 5px 5px 10px rgba(22, 46, 77, 0.3);
+  box-shadow: 5px 5px 10px rgba(176, 75, 47, 0.3);
 }
 .deck-card.selected {
   opacity: 0.5;
-  transform: scale(0.9);
   pointer-events: none;
   border-color: #c44450;
 }
