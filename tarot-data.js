@@ -4,85 +4,99 @@ const tarotDeck = [
         name: "The Fool",
         symbol: "0",
         keywords: ["beginnings", "innocence", "adventure", "potential"],
-        meaning: "New beginnings, spontaneity, faith, apparent folly, risk-taking, freedom. The Fool represents taking a leap of faith and embarking on a new journey."
+        meaning: "New beginnings, spontaneity, faith, apparent folly, risk-taking, freedom. The Fool represents taking a leap of faith and embarking on a new journey.",
+        image: "fool.jpg"
     },
     {
         name: "The Magician",
         symbol: "I",
         keywords: ["manifestation", "power", "action", "creativity"],
-        meaning: "Manifestation, resourcefulness, power, inspired action. The Magician represents your ability to utilize all elements at your disposal to create your reality."
+        meaning: "Manifestation, resourcefulness, power, inspired action. The Magician represents your ability to utilize all elements at your disposal to create your reality.",
+        image: "magician.jpg"
     },
     {
         name: "High Priestess",
         symbol: "II",
         keywords: ["intuition", "unconscious", "inner voice", "divine feminine"],
-        meaning: "Intuition, sacred knowledge, divine feminine, the subconscious mind. The High Priestess represents a connection to your inner voice and hidden truths."
+        meaning: "Intuition, sacred knowledge, divine feminine, the subconscious mind. The High Priestess represents a connection to your inner voice and hidden truths.",
+        image: "priestess.jpg"
     },
     {
         name: "The Empress",
         symbol: "III",
         keywords: ["abundance", "nurturing", "fertility", "femininity"],
-        meaning: "Femininity, beauty, nature, abundance, nurturing. The Empress represents creation, growth, and the nurturing of ideas or relationships."
+        meaning: "Femininity, beauty, nature, abundance, nurturing. The Empress represents creation, growth, and the nurturing of ideas or relationships.",
+        image: "empress.jpg"
     },
     {
         name: "The Emperor",
         symbol: "IV",
         keywords: ["authority", "structure", "control", "leadership"],
-        meaning: "Authority, structure, control, fatherhood, leadership. The Emperor represents establishment of order, stability, and foundations."
+        meaning: "Authority, structure, control, fatherhood, leadership. The Emperor represents establishment of order, stability, and foundations.",
+        image: "emperor.jpg"
     },
     {
         name: "The Hierophant",
         symbol: "V",
         keywords: ["tradition", "conformity", "morality", "beliefs"],
-        meaning: "Spiritual wisdom, religious beliefs, conformity, tradition, institutions. The Hierophant represents connection to spiritual guidance and established systems."
+        meaning: "Spiritual wisdom, religious beliefs, conformity, tradition, institutions. The Hierophant represents connection to spiritual guidance and established systems.",
+        image: "hierophant.jpg"
     },
     {
         name: "The Lovers",
         symbol: "VI",
         keywords: ["love", "harmony", "relationships", "choices"],
-        meaning: "Love, harmony, relationships, values alignment, choices. The Lovers represents important decisions and alignment with your values."
+        meaning: "Love, harmony, relationships, values alignment, choices. The Lovers represents important decisions and alignment with your values.",
+        image: "lovers.jpg"
     },
     {
         name: "The Chariot",
         symbol: "VII",
         keywords: ["control", "willpower", "success", "determination"],
-        meaning: "Control, willpower, victory, determination, success. The Chariot represents overcoming obstacles through focus and confidence."
+        meaning: "Control, willpower, victory, determination, success. The Chariot represents overcoming obstacles through focus and confidence.",
+        image: "chariot.jpg"
     },
     {
         name: "Strength",
         symbol: "VIII",
         keywords: ["courage", "patience", "compassion", "persuasion"],
-        meaning: "Courage, persuasion, influence, compassion, inner strength. Strength represents emotional control and gentle power."
+        meaning: "Courage, persuasion, influence, compassion, inner strength. Strength represents emotional control and gentle power.",
+        image: "strength.jpg"
     },
     {
         name: "The Hermit",
         symbol: "IX",
         keywords: ["soul-searching", "introspection", "solitude", "guidance"],
-        meaning: "Introspection, solitude, inner guidance, contemplation. The Hermit represents withdrawal to seek truth and self-knowledge."
+        meaning: "Introspection, solitude, inner guidance, contemplation. The Hermit represents withdrawal to seek truth and self-knowledge.",
+        image: "hermit.jpg"
     },
     {
         name: "Wheel of Fortune",
         symbol: "X",
         keywords: ["change", "cycles", "fate", "turning point"],
-        meaning: "Change, cycles, fate, pivotal moments, destiny. The Wheel of Fortune represents life's unpredictable nature and turning points."
+        meaning: "Change, cycles, fate, pivotal moments, destiny. The Wheel of Fortune represents life's unpredictable nature and turning points.",
+        image: "wheel.jpg"
     },
     {
         name: "Justice",
         symbol: "XI",
         keywords: ["fairness", "truth", "law", "consequence"],
-        meaning: "Fairness, truth, cause and effect, law, balance. Justice represents the consequences of your actions and universal equilibrium."
+        meaning: "Fairness, truth, cause and effect, law, balance. Justice represents the consequences of your actions and universal equilibrium.",
+        image: "justice.jpg"
     },
     {
         name: "The Hanged Man",
         symbol: "XII",
         keywords: ["surrender", "new perspective", "letting go", "sacrifice"],
-        meaning: "Surrender, letting go, new perspectives, suspension. The Hanged Man represents viewing life from a different angle and the wisdom of surrender."
+        meaning: "Surrender, letting go, new perspectives, suspension. The Hanged Man represents viewing life from a different angle and the wisdom of surrender.",
+        image: "hanged.jpg"
     },
     {
         name: "Death",
         symbol: "XIII",
         keywords: ["endings", "change", "transformation", "transition"],
-        meaning: "Endings, change, transformation, transition. Death represents the end of one phase and the beginning of another."
+        meaning: "Endings, change, transformation, transition. Death represents the end of one phase and the beginning of another.",
+        image: "death.jpg"
     },
     {
         name: "Temperance",

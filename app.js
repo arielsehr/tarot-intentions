@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const today = new Date();
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       let dateString = today.toLocaleDateString(undefined, options);
-      dateElement.textContent = dateString.toLowerCase(); 
+      dateElement.textContent = dateString; 
     }
     
     // Get the header element
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const dateText = dateElement?.textContent || '';
       
       // Set the scrolling text
-      const scrollText = `${h1Text} ☽ ${dateText} ✴ ${subtitle} ✦ draw a card for daily guidance ✤ `;
+      const scrollText = `${h1Text} ☽ ${dateText} ✦ Draw a card for daily guidance. ✤ `;
       header.setAttribute('data-scroll-text', scrollText);
     
       

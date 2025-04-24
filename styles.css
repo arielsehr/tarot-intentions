@@ -1,6 +1,6 @@
 body {
-  font-family: "Playfair Display", serif;
-  background-color: #a5b29c;
+  font-family: "Poppins", sans-serif;
+  background-color: #162e4d;
   color: #2a2a2a;
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
 header {
   padding: 2rem;
   background-color: #264e86;
-  color: #f8f8f8;
+  color: #fff3e0;
   position: fixed;
 }
 
@@ -21,17 +21,6 @@ h1 {
   font-size: 4rem;
   margin: 0;
   font-weight: 800;
-  color: #e6c565;
-}
-
-h2 {
-  text-transform: lowercase;
-}
-
-.subtitle {
-  font-style: italic;
-  margin-top: 0.5rem;
-  font-size: 24px;
 }
 
 main {
@@ -40,7 +29,6 @@ main {
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  background-color: #a5b29c;
 }
 
 footer {
@@ -59,25 +47,21 @@ footer {
 /* Using celestial-blue and moon-gold colors */
 header.title-area {
   padding: 2rem;
-  background-color: #264e86;
-  color: #e6c565;
+  background-color: #162e4d;
   width: 100%;
   box-sizing: border-box;
-  z-index: 100;
+  z-index: 9;
   position: relative;
   /* No initial animation for the background - it's visible immediately */
   opacity: 1;
   transform: none;
 }
 
-/* The header elements should animate in sequence */
 header.title-area h1 {
   font-size: 4rem;
   margin: 0;
-  font-weight: 800;
-  color: #e6c565; /* Moon gold for title */
+  font-weight: 700;
   opacity: 0;
-  transform: translateY(40px);
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.3s;
 }
@@ -85,30 +69,31 @@ header.title-area h1 {
 header.title-area h2 {
   margin: 0.5rem 0;
   opacity: 0;
-  transform: translateY(40px);
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.5s;
 }
 
 header.title-area h2#tarot-date {
   font-weight: normal;
-  color: #f8f8f8;
-  opacity: 0;
-  transform: translateY(40px);
+  color: #fff3e0;
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.7s;
-  text-transform: lowercase;
+  margin-left: 70px;
+  color: #e6c565;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 header.title-area .subtitle {
-  font-style: italic;
-  margin-top: 0.5rem;
-  font-size: 24px;
-  color: #f8f8f8;
+  font-size: 18px;
+  color: #fff3e0;
+  font-weight: 700;
   opacity: 0;
   transform: translateY(40px);
   animation: slideUpElement 0.8s ease forwards;
   animation-delay: 0.9s;
+  margin: 0 0 0 70px;
 }
 
 /* Fixed header state with horizontal scrolling text */
@@ -116,9 +101,8 @@ header.title-area.fixed {
   position: fixed;
   top: 0;
   left: 0;
-  height: 60px; /* Fixed height for the banner */
+  height: 60px;
   padding: 0;
-  background-color: #264e86; /* Celestial blue for background */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
@@ -141,7 +125,6 @@ header.title-area.fixed::before {
   font-size: 1.5rem;
   font-weight: 600;
   animation: scrollText 20s linear infinite;
-  text-transform: lowercase; /* Ensure scrolling text is also lowercase */
 }
 
 /* Animation keyframes */
@@ -163,30 +146,130 @@ header.title-area.fixed::before {
     transform: translateX(-100%);
   }
 }
+.lady-and-bubbles {
+  position: relative;
+  display: inline-block;
+  position: fixed;
+  max-width: 500px;
+  top: 0;
+  right: -150px;
+  z-index: 10;
+}
+
+.lady {
+  display: block;
+  max-width: 500px;
+}
+
+.bubble {
+  position: absolute;
+  top: 150px;
+  left: -100px;
+  background: #fff3e0;
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 12px 16px;
+  max-width: 120px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bubble::before, .lion-bubble::before, .lion-bubble-two::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -29px; /* slightly further out */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  border-left-color: #000; /* black border */
+  z-index: 0;
+}
+
+.bubble::after, .lion-bubble::after, .lion-bubble-two::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-left-color: #fff3e0; /* inner color */
+  z-index: 1;
+}
+
+.lion-bubble {
+  position: absolute;
+  top: 350px;
+  left: -100px;
+  background: #fff3e0;
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 12px 16px;
+  max-width: 150px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lion-bubble-two {
+  position: absolute;
+  top: 350px;
+  left: -200px;
+  background: #fff3e0;
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 12px 16px;
+  max-width: 250px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
 .reading-types {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  gap: 1px;
+  border: 1px solid rgba(38, 78, 134, 0.5);
+  position: relative;
+  width: fit-content;
   margin-bottom: 2rem;
+  overflow: hidden;
+  margin-left: 70px;
 }
 
 .reading-btn {
-  background-color: #162e4d;
-  color: #e6c565;
+  background: #162e4d;
+  color: #fff3e0;
   border: none;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   cursor: pointer;
-  border-radius: 5px;
   transition: 0.3s ease;
-}
-.reading-btn:hover {
-  background-color: #a5b29c;
-  color: #f8f8f8;
+  position: relative;
+  z-index: 1;
 }
 .reading-btn.active {
-  background-color: #a5b29c;
-  color: #f8f8f8;
+  background: linear-gradient(45deg, #264e86, #162e4d);
+  color: #e6c565;
+}
+
+#single-card-btn:hover ~ .lady-and-bubbles .lion-bubble {
+  opacity: 1;
+  visibility: visible;
+}
+
+#three-card-btn:hover ~ .lady-and-bubbles .lion-bubble-two {
+  opacity: 1;
+  visibility: visible;
 }
 
 .reading-container {
@@ -291,7 +374,7 @@ header.title-area.fixed::before {
   width: 100%;
   height: 100%;
   background-color: rgba(22, 46, 77, 0.9);
-  color: #f8f8f8;
+  color: #fff3e0;
   font-size: 0.9rem;
   text-align: center;
   opacity: 0;
@@ -336,7 +419,7 @@ header.title-area.fixed::before {
   display: inline-block;
 }
 .interpretation h4 {
-  color: #d96a54;
+  color: #e05e34;
   font-size: 1.2rem;
   margin: 1rem 0 0.5rem;
 }
