@@ -142,6 +142,24 @@ header.title-area.fixed::before {
     transform: translateX(-100%);
   }
 }
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .lady-and-bubbles {
   position: relative;
   display: inline-block;
@@ -236,22 +254,37 @@ header.title-area.fixed::before {
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
+@media (max-width: 768px) {
+  .lion-bubble {
+    top: 220px;
+    left: -120px;
+    font-size: 12px;
+  }
+}
 
 .lion-bubble-two {
   position: absolute;
   top: 350px;
-  left: -200px;
+  left: -150px;
   background: #fff3e0;
   border: 2px solid #000;
   border-radius: 16px;
   padding: 12px 16px;
-  max-width: 250px;
+  max-width: 200px;
   font-size: 16px;
   font-weight: bold;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+@media (max-width: 768px) {
+  .lion-bubble-two {
+    top: 220px;
+    left: -120px;
+    font-size: 12px;
+    max-width: 150px;
+  }
 }
 
 .reading-types {
@@ -260,10 +293,8 @@ header.title-area.fixed::before {
   gap: 3px;
   border: 2px solid #000;
   position: relative;
-  margin-bottom: 2rem;
   overflow: hidden;
-  margin-left: 70px;
-  margin: 2rem;
+  margin-left: 2rem;
   border-radius: 16px;
   background-color: #000;
   width: fit-content;
@@ -314,7 +345,7 @@ header.title-area.fixed::before {
 }
 @media (max-width: 768px) {
   .reading-container {
-    padding-top: 300px;
+    padding: 300px 0 0 0;
   }
 }
 
@@ -328,22 +359,27 @@ header.title-area.fixed::before {
 .deck-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
   padding: 20px;
+  max-width: 70%;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .deck-container {
+    padding: 0;
+    max-width: none;
+  }
 }
 
 .deck-card {
   aspect-ratio: 60/100;
-  width: 80px;
+  width: 100px;
   border-radius: 5px;
-  box-shadow: 2px 2px 4px rgba(22, 46, 77, 0.2);
   cursor: pointer;
   transition: 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e6c565;
   font-size: 1rem;
   background-image: url("./img/back-new.jpg");
   background-size: 120%;
@@ -351,9 +387,14 @@ header.title-area.fixed::before {
   background-repeat: no-repeat;
   border: 1px solid #b3a79f;
 }
+@media (max-width: 768px) {
+  .deck-card {
+    width: 75px;
+  }
+}
 .deck-card:hover {
   transform: translateY(-5px) rotateY(20deg);
-  box-shadow: 5px 5px 10px rgba(176, 75, 47, 0.3);
+  box-shadow: 5px 5px 10px rgba(165, 178, 156, 0.7);
 }
 .deck-card.selected {
   opacity: 0.5;
@@ -367,7 +408,6 @@ header.title-area.fixed::before {
   gap: 2rem;
   flex-wrap: wrap;
   margin: 2rem 0;
-  min-height: 200px;
 }
 
 .card {
@@ -428,7 +468,7 @@ header.title-area.fixed::before {
 }
 
 .position-label {
-  color: #2a2a2a;
+  color: #e6c565;
   font-weight: bold;
   margin-bottom: 10px;
 }

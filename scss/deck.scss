@@ -4,39 +4,45 @@
 .deck-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
   padding: 20px;
+  max-width: 70%;
+  justify-content: center;
+
+  @media (max-width: $medium) {
+    padding: 0;
+    max-width: none;
+  }
 }
 
 .deck-card {
   aspect-ratio: 60 / 100;
-  width: 80px;
+  width: 100px;
   border-radius: $border-radius;
-  box-shadow: 2px 2px 4px rgba($deep-navy, 0.2); // Changed shadow color to use $deep-navy
   cursor: pointer;
   transition: $transition-fast;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $moon-gold; // Changed from $yellow to $moon-gold
   font-size: $body-size;
-
   background-image: url('./img/back-new.jpg');
   background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
-  border: 1px solid $stone-gray; // Added subtle border for definition
+  border: 1px solid $stone-gray; 
+
+  @media (max-width: $medium) {
+    width: 75px;
+  }
 
   &:hover {
     transform: translateY(-5px) rotateY(20deg);
-    box-shadow: 5px 5px 10px rgba($terra-cotta, 0.3); 
+    box-shadow: 5px 5px 10px rgba($sage-green, 0.7); 
   }
 
   &.selected {
     opacity: 0.5;
-    // transform: scale(0.9);
     pointer-events: none;
-    border-color: $scorpion-red; // Added color indication for selected cards
+    border-color: $scorpion-red; 
   }
 }
