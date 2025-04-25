@@ -3,19 +3,33 @@
 
 .reading-area {
   justify-content: center;
-  gap: $spacing-large;
   margin: calc($spacing-large*2) 0 $spacing-large 0;
   transition: $transition-medium;
   transform-style: preserve-3d;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .reading-area:has(.card:only-child) {
-  display: flex;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
 }
 
 .reading-area:not(:has(.card:only-child)) {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: $medium) {
+    grid-template-columns: 1fr;
+    .card-position {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
 }
 
 .card {
@@ -25,35 +39,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-self: center;
   position: relative;
   overflow: hidden;
   transition: $transition-medium;
   transform-style: preserve-3d;
   animation: card-reveal $transition-slow forwards;
-  max-width: 500px;
+  width: 400px;
+  height: 700px;
 
   // Make everything inside take full size
   .card-image {
-    width: 100%;
-    height: 100%;
-    background-color: $celestial-blue; // Changed from $light-blue to $celestial-blue
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 104%;
     overflow: hidden;
+    object-fit: cover;
+    height: 100%;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
   }
 
   .card-meaning {
     position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba($deep-navy, 0.9); 

@@ -14,22 +14,8 @@
   h1 {
     font-size: 2rem;
   }
-  
-  .reading-area {
-    gap: $spacing-medium;
-  }
-  
-  .card {
-    width: 150px;
-    height: 255px;
-  }
-  
-  .card-image {
-    width: 80px;
-    height: 120px;
-    font-size: 2rem;
-  }
-  
+
+
   .card-meaning {
     font-size: 0.8rem;
     max-height: 80px;
@@ -45,9 +31,5 @@
     width: 120px;
     height: 210px;
   }
-  
-  .card-image {
-    width: 60px;
-    height: 90px;
-  }
+
 }

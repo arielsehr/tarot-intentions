@@ -67,13 +67,6 @@ header.title-area h1 {
   }
 }
 
-header.title-area h2 {
-  margin: 0.5rem 0;
-  opacity: 0;
-  animation: slideUpElement 0.8s ease forwards;
-  animation-delay: 0.5s;
-}
-
 header.title-area h2#tarot-date {
   font-weight: normal;
   color: $light-text;
@@ -83,12 +76,15 @@ header.title-area h2#tarot-date {
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
+  margin: 0.5rem 0;
+  opacity: 0;
+  animation: slideUpElement 0.8s ease forwards;
+  animation-delay: 0.5s;
 }
 
 header.title-area .subtitle {
   font-size: 18px;
   color: $light-text;
-  font-weight: 700;
   opacity: 0;
   transform: translateY(40px);
   animation: slideUpElement 0.8s ease forwards;

@@ -92,7 +92,7 @@ function displaySelectedCards() {
         }
         
         // Fade out the deck
-        deckContainer.style.opacity = '0';
+        deckContainer.style.opacity = '1';
         deckContainer.style.transition = 'opacity 0.8s ease-out';
         
         // Show interpretation after deck fades out
@@ -195,7 +195,9 @@ function createCardElement(card) {
 
    cardElement.innerHTML = `
        <div class="card-image">${cardImage.innerHTML || card.symbol}</div>
-       <div class="card-meaning">${card.meaning}</div>
+       <div class="card-meaning">
+       ${card.keywords.join(', ')}
+       </div>
    `;
 
    return cardElement;
