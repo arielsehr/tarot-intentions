@@ -154,14 +154,22 @@ header.title-area.fixed::before {
 @media (max-width: 768px) {
   .lady-and-bubbles {
     max-width: 100px;
-    right: 150px;
-    top: 200px;
+    right: 130px;
+    top: 250px;
+    z-index: 5;
   }
 }
 
 .lady {
   display: block;
   max-width: 500px;
+}
+@media (max-width: 768px) {
+  .lady {
+    max-width: 300px;
+    right: 150px;
+    top: 200px;
+  }
 }
 
 .bubble {
@@ -177,6 +185,13 @@ header.title-area.fixed::before {
   font-weight: bold;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+@media (max-width: 768px) {
+  .bubble {
+    top: 120px;
+    left: -120px;
+    font-size: 12px;
+  }
 }
 
 .bubble::before, .lion-bubble::before, .lion-bubble-two::before {
@@ -297,9 +312,10 @@ header.title-area.fixed::before {
   z-index: 9;
   position: relative;
 }
-
-#reading-title {
-  color: #fff3e0;
+@media (max-width: 768px) {
+  .reading-container {
+    padding-top: 300px;
+  }
 }
 
 .instructions {

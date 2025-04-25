@@ -1,7 +1,6 @@
 // DOM Elements
 const singleCardBtn = document.getElementById('single-card-btn');
 const threeCardBtn = document.getElementById('three-card-btn');
-const readingTitle = document.getElementById('reading-title');
 const deckContainer = document.getElementById('deck-container');
 const readingArea = document.getElementById('reading-area');
 const interpretation = document.getElementById('interpretation');
@@ -161,7 +160,6 @@ function setReadingType(type) {
     // Update UI
     singleCardBtn.classList.toggle('active', type === 'single');
     threeCardBtn.classList.toggle('active', type === 'three');
-    readingTitle.textContent = type === 'single' ? 'Daily Card Reading' : 'Past • Present • Future Reading';
     maxCards = type === 'single' ? 1 : 3;
     
     // Clear previous readings

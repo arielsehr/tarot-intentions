@@ -12,14 +12,21 @@
 
   @media (max-width: $medium) {
     max-width: 100px;
-    right: 150px;
-    top: 200px;
+    right: 130px;
+    top: 250px;
+    z-index: 5;
   }
 }
 
 .lady {
   display: block;
   max-width: 500px;
+
+  @media (max-width: $medium) {
+    max-width: 300px;
+    right: 150px;
+    top: 200px;
+  }
 }
 
 .bubble {
@@ -35,6 +42,12 @@
   font-weight: bold;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  @media (max-width: $medium) {
+    top: 120px;
+    left: -120px;
+    font-size: 12px;
+  }
 
 }
 
@@ -165,10 +178,10 @@
   z-index: 9;
   position: relative;
 
-}
+  @media (max-width: $medium) {
+    padding-top: 300px;
+  }
 
-#reading-title {
-  color: $light-text;
 }
 
 .instructions {
