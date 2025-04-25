@@ -235,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
           document.body.classList.add('fixed-header');
           // Apply padding to body equal to the fixed header height 
           document.body.style.paddingTop = "250px";
-          bubble.style.display = "none";
           bubble.style.opacity = "0";
           bubble.style.visibility = "hidden";
         } else {
@@ -244,7 +243,6 @@ document.addEventListener('DOMContentLoaded', function() {
           document.body.classList.remove('fixed-header');
           // Remove the padding when header is not fixed
           document.body.style.paddingTop = "0px";
-          bubble.style.display = "block";
           bubble.style.opacity = "1";
           bubble.style.visibility = "visible";
         }

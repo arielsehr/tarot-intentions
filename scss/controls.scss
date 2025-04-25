@@ -9,6 +9,12 @@
   top: 20px;
   right: -150px;
   z-index: 9;
+
+  @media (max-width: $medium) {
+    max-width: 100px;
+    right: 150px;
+    top: 200px;
+  }
 }
 
 .lady {
@@ -28,6 +34,8 @@
   font-size: 16px;
   font-weight: bold;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
 }
 
 .bubble::before, .lion-bubble::before, .lion-bubble-two::before {
@@ -95,16 +103,22 @@
 /// READING BUTTONS
  .reading-types {
   display: flex;
+  flex-wrap: nowrap;
   gap: 3px;
   border: 2px solid #000;
   position: relative;
-  width: fit-content;
   margin-bottom: $spacing-large;
   overflow: hidden;
   margin-left: 70px;
   margin: $spacing-large;
   border-radius: 16px;
   background-color: #000;
+  width: fit-content;
+
+  @media (max-width: $medium) {
+    margin: 0 32px;
+  }
+
 }
 
 .reading-btn {
@@ -150,6 +164,7 @@
   padding-left: $spacing-large;
   z-index: 9;
   position: relative;
+
 }
 
 #reading-title {
