@@ -187,6 +187,8 @@
   padding-left: $spacing-large;
   z-index: 9;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
   @media (max-width: $medium) {
     padding: 300px 0 0 0;

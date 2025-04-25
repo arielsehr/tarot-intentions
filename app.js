@@ -13,26 +13,51 @@ let maxCards = 0;
 
 // Create and display the deck of cards
 function createDeck() {
-   deckContainer.innerHTML = '';
-   const shuffledDeck = [...tarotDeck].sort(() => Math.random() - 0.5);
-   
-   for (let i = 0; i < 22; i++) {
-       const card = shuffledDeck[i];
-       const deckCard = document.createElement('div');
-       deckCard.className = 'deck-card';
-       deckCard.textContent = '✦';
-       
-       deckCard.addEventListener('click', function() {
-           if (selectedCards.length < maxCards && !this.classList.contains('selected')) {
-               this.classList.add('selected');
-               selectedCards.push(card);
-               displaySelectedCards();
-           }
-       });
-       
-       deckContainer.appendChild(deckCard);
-   }
-}
+    deckContainer.innerHTML = '';
+    const shuffledDeck = [...tarotDeck].sort(() => Math.random() - 0.5);
+    
+    const totalCards = 22;
+    const fanAngle = 160; // Total angle of the fan in degrees
+    const radius = 350; // Distance from center point
+    
+    for (let i = 0; i < totalCards; i++) {
+      const card = shuffledDeck[i];
+      const deckCard = document.createElement('div');
+      deckCard.className = 'deck-card';
+      deckCard.textContent = '✦';
+      
+      // Calculate the position in the fan
+      const angle = (fanAngle / (totalCards - 1)) * i - (fanAngle / 2);
+      const radian = angle * Math.PI / 180;
+      
+      // Position using trigonometry
+      const left = 50 + (radius * Math.sin(radian) / 10);
+      const bottom = 0 - (radius * Math.cos(radian) / 10);
+      
+      // Apply transformations
+      deckCard.style.left = `${left}%`;
+      deckCard.style.bottom = `${bottom}px`;
+      deckCard.style.transform = `rotate(${angle}deg)`;
+      deckCard.style.opacity = '0';
+      deckCard.style.transition = 'opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease';
+      
+      deckCard.addEventListener('click', function() {
+        if (selectedCards.length < maxCards && !this.classList.contains('selected')) {
+          this.classList.add('selected');
+          selectedCards.push(card);
+          displaySelectedCards();
+        }
+      });
+      
+      deckContainer.appendChild(deckCard);
+      
+      // Stagger the fade-in of each card
+      setTimeout(() => {
+        deckCard.style.opacity = '1';
+      }, 50 + (i * 30));
+    }
+  }
+
 function displaySelectedCards() {
     readingArea.innerHTML = '';
     
@@ -72,7 +97,7 @@ function displaySelectedCards() {
         
         // Show interpretation after deck fades out
         setTimeout(() => {
-            deckContainer.style.display = 'none';
+
             if (interpretation) {
                 interpretation.style.display = 'block';
                 interpretation.style.opacity = '0';
@@ -98,7 +123,7 @@ function displayCardInterpretation() {
    
    // Add spacing and header
    interpretation.innerHTML = `
-       <div style="height: 40px"></div>
+
        <h3>Card Meaning</h3>
    `;
    
@@ -193,7 +218,7 @@ function setReadingType(type) {
     
     // Clear previous readings
     readingArea.innerHTML = '';
-    readingArea.style.display = 'flex';
+    readingArea.style.display = 'grid';
     
     if (interpretation) {
         interpretation.innerHTML = '';
@@ -269,6 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
          document.body.style.paddingTop = "250px";
          bubble.style.opacity = "0";
          bubble.style.visibility = "hidden";
+         bubble.textContent = "Have a great day babe!"
        } else {
          header.classList.remove('fixed');
          header.style.zIndex = '8';

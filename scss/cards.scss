@@ -2,18 +2,23 @@
 @use 'variables' as *;
 
 .reading-area {
-  display: flex;
   justify-content: center;
   gap: $spacing-large;
-  flex-wrap: wrap;
-  margin: $spacing-large 0;
+  margin: calc($spacing-large*2) 0 $spacing-large 0;
   transition: $transition-medium;
   transform-style: preserve-3d;
 }
 
+.reading-area:has(.card:only-child) {
+  display: flex;
+}
+
+.reading-area:not(:has(.card:only-child)) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .card {
-  width: 200px;
-  height: 340px;
   background-color: $moon-gold; 
   border-radius: $card-radius;
   box-shadow: $shadow-heavy;
@@ -25,6 +30,7 @@
   transition: $transition-medium;
   transform-style: preserve-3d;
   animation: card-reveal $transition-slow forwards;
+  max-width: 500px;
 
   // Make everything inside take full size
   .card-image {
