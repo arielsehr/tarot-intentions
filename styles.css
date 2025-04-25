@@ -373,7 +373,7 @@ header.title-area.fixed::before {
 
 .deck-card {
   aspect-ratio: 60/100;
-  width: 100px;
+  width: 110px;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s ease;
@@ -408,6 +408,8 @@ header.title-area.fixed::before {
   gap: 2rem;
   flex-wrap: wrap;
   margin: 2rem 0;
+  transition: 0.6s ease;
+  transform-style: preserve-3d;
 }
 
 .card {

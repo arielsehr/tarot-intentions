@@ -186,9 +186,9 @@ function setReadingType(type) {
     threeCardBtn.classList.toggle('active', type === 'three');
     maxCards = type === 'single' ? 1 : 3;
     
-    // Reset deck styling
-    deckContainer.style.opacity = '1';
-    deckContainer.style.transition = '';
+    // Reset deck styling but start with opacity 0
+    deckContainer.style.opacity = '0';
+    deckContainer.style.transition = 'opacity 0.8s ease-out';
     deckContainer.style.display = 'flex';
     
     // Clear previous readings
@@ -199,7 +199,7 @@ function setReadingType(type) {
         interpretation.innerHTML = '';
         interpretation.style.display = 'none';
         interpretation.style.opacity = '1';
-        interpretation.style.transition = '';
+        interpretation.style.transition = 'opacity 0.8s ease-out';
     }
     
     // Reset any previously selected cards
@@ -210,6 +210,11 @@ function setReadingType(type) {
     
     // Show reading container
     if (readingContainer) readingContainer.style.display = 'block';
+    
+    // Fade in the deck after a brief delay
+    setTimeout(() => {
+        deckContainer.style.opacity = '1';
+    }, 50);
 }
 
 // Initialize the app
