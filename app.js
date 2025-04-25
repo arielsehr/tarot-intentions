@@ -121,12 +121,6 @@ function displayCardInterpretation() {
    
    interpretation.innerHTML = '';
    
-   // Add spacing and header
-   interpretation.innerHTML = `
-
-       <h3>Card Meaning</h3>
-   `;
-   
    if (readingType === 'single') {
        displaySingleCardInfo(selectedCards[0]);
    } else {
@@ -139,9 +133,14 @@ function displaySingleCardInfo(card) {
    const interpretationDiv = document.createElement('div');
    interpretationDiv.className = 'card-interpretation';
    interpretationDiv.innerHTML = `
-       <h4>${card.name}</h4>
+       <h3>${card.name}</h3>
        <p>${card.meaning}</p>
-       <p><strong>Keywords:</strong> ${card.keywords.join(', ')}</p>
+       <strong>Your intention for today: </strong>
+       <p>
+       ${card.mantra}
+       </p>
+
+       <p>${card.keywords.join(', ')}</p>
    `;
    
    interpretation.appendChild(interpretationDiv);
@@ -165,7 +164,10 @@ function displayThreeCardInfo() {
        cardSection.style.marginTop = '20px';
        cardSection.innerHTML = `
            <h4>${positions[index]}: ${card.name}</h4>
-           <p>${card.meaning}</p>
+       <strong>Your intention for today: </strong>
+       <p>
+       ${card.mantra}
+       </p>
            <p><strong>Keywords:</strong> ${card.keywords.join(', ')}</p>
        `;
        

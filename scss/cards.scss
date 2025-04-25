@@ -3,7 +3,7 @@
 
 .reading-area {
   justify-content: center;
-  margin: calc($spacing-large*2) 0 $spacing-large 0;
+  margin: 200px 0 $spacing-large 0;
   transition: $transition-medium;
   transform-style: preserve-3d;
   grid-template-columns: 1fr 1fr 1fr;
@@ -48,6 +48,11 @@
   width: 400px;
   height: 700px;
 
+  @media (max-width: $medium) {
+    width: 250px;
+    height: 450px;
+  }
+
   // Make everything inside take full size
   .card-image {
     width: 104%;
@@ -91,6 +96,7 @@
 
 .position-label {
   color: $moon-gold;
-  font-weight: bold;
+  font-weight: 400;
   margin-bottom: 10px;
+  font-size: 24px;
 }

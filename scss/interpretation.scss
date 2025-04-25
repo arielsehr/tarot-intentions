@@ -2,37 +2,36 @@
 @use 'variables' as *;
 
 .interpretation {
-  background-color: $pale-gold; // Changed from $yellow to $pale-gold
+  background-color: $sage-green;
   border-left: 4px solid $sage-green; // Changed from $celery to $sage-green
   padding: $spacing-large;
-  margin-top: $spacing-xlarge; // More breathing room
-  border-radius: 0 $card-radius $card-radius 0;
+  margin-top: $spacing-xlarge;
+  border-radius: $card-radius;
   line-height: 1.6;
-  clear: both; // Ensures it appears below the cards
+  clear: both;
   
   h3 {
-    color: $deep-navy; // Changed from $celery to $deep-navy
+    color: $deep-navy; 
     font-size: 1.5rem;
-    margin-bottom: $spacing-large;
     font-weight: normal;
-    border-bottom: 2px solid $sage-green; // Changed from $celery to $sage-green
-    padding-bottom: $spacing-small;
+    border-bottom: 2px solid $sage-green;
     display: inline-block;
+    margin: 0;
   }
   
   h4 {
-    color: $terra-cotta; // Changed from $black to $terra-cotta
+    color: $terra-cotta;
     font-size: 1.2rem;
-    margin: $spacing-medium 0 $spacing-small;
+    margin: 0;
   }
   
   p {
     margin-bottom: $spacing-medium;
-    color: $dark-text; // Added specific text color
+    color: $dark-text;
   }
   
   strong {
-    color: $deep-navy; // Changed from $celery to $deep-navy
+    color: $deep-navy;
   }
 }
 

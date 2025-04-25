@@ -406,7 +406,7 @@ header.title-area.fixed::before {
 
 .reading-area {
   justify-content: center;
-  margin: 4rem 0 2rem 0;
+  margin: 200px 0 2rem 0;
   transition: 0.6s ease;
   transform-style: preserve-3d;
   grid-template-columns: 1fr 1fr 1fr;
@@ -451,6 +451,12 @@ header.title-area.fixed::before {
   width: 400px;
   height: 700px;
 }
+@media (max-width: 768px) {
+  .card {
+    width: 250px;
+    height: 450px;
+  }
+}
 .card .card-image {
   width: 104%;
   overflow: hidden;
@@ -489,32 +495,32 @@ header.title-area.fixed::before {
 
 .position-label {
   color: #e6c565;
-  font-weight: bold;
+  font-weight: 400;
   margin-bottom: 10px;
+  font-size: 24px;
 }
 
 .interpretation {
-  background-color: #f4e6b7;
+  background-color: #a5b29c;
   border-left: 4px solid #a5b29c;
   padding: 2rem;
   margin-top: 3rem;
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   line-height: 1.6;
   clear: both;
 }
 .interpretation h3 {
   color: #162e4d;
   font-size: 1.5rem;
-  margin-bottom: 2rem;
   font-weight: normal;
   border-bottom: 2px solid #a5b29c;
-  padding-bottom: 0.5rem;
   display: inline-block;
+  margin: 0;
 }
 .interpretation h4 {
   color: #b04b2f;
   font-size: 1.2rem;
-  margin: 1rem 0 0.5rem;
+  margin: 0;
 }
 .interpretation p {
   margin-bottom: 1rem;
@@ -554,11 +560,5 @@ header.title-area.fixed::before {
   }
   .interpretation {
     padding: 1rem;
-  }
-}
-@media (max-width: 480px) {
-  .card {
-    width: 120px;
-    height: 210px;
   }
 }
